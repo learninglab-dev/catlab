@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+  <html lang="en-US">
+  <head>
+    <% include partials/head %>
+    <link rel='stylesheet' href='/stylesheets/slack_lists.css'>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>
+      List of
+      <%= listTitle %>
+      .
+    </p>
+    <table style="width:400px;">
+      <%
+        list.forEach(function(element){
+      %>
+      <tr>
+        <td>
+          <strong>Name: </strong><%= element.name %>
+        </td>
+          <td>
+            <strong>Id: </strong><%= element.id %>
+          </td>
+      </tr>
+      <%
+        });
+      %>
+    </table>
+  </body>
+<% include partials/foot %>

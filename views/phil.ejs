@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>My new stuff is <%= newvar%></p>
+    <p>This is an array test:</p>
+    <ul>
+      <% for (var i=0;i<testarray.length;i++){%>
+        <li> <%= testarray[i] %></li>
+      <% } %>
+    </ul>
+    <p>this is a different test: the third character of title is <%=title[2]%></p>
+    <h2>This is a test form</>
+    <form action="/phil/posttest" method="post">
+      <input class="text_box" type="text" id="other" name="thisisaname">
+      <input type="submit" value="GO">
+    </form>
+    <br>
+    <br>
+    <h2>This is a prototype character generator</h2>
+      <form action="/phil/posttest" method="post">
+        <ol>
+          <li>Choose a character class.
+            <select class="dropdown" name="charclass">
+              <option value="barbarian">Barbarian</option>
+              <option value="bard">Bard</option>
+              <option value="druid">Druid</option>
+              <option value="monk">Monk</option>
+              <option value="paladin">Paladin</option>
+              <option value="ranger">Ranger</option>
+              <option value="sorcerer">Sorcerer</option>
+              <option value="warlock">Warlock</option>
+            </select>
+          </li>
+          <li>Choose a character race.
+            <select class="dropdown" name="charrace">
+              <option value="dragonborn">Dragonborn</option>
+              <option value="dward">Dwarf</option>
+              <option value="eladrin">Eladrin</option>
+              <option value="elf">Elf</option>
+              <option value="gnome">Gnome</option>
+              <option value="halfelf">Half-elf</option>
+              <option value="halforc">Half-orc</option>
+              <option value="halfling">Halfling</option>
+              <option value="human">Human</option>
+              <option value="tiefling">Tiefling</option>
+            </select>
+          </li>
+          <li>What level do you want to start at?
+              <input class="text_box" type="number" name="charlevel" style="width:3em" min="0" step="1">
+          </li>
+          <li>roll once
+            <button onclick="Math.floor((Math.random() * 6) + 1)">Roll #1</button>
+          </li>
+          <li>Your rolls are</li>
+          <li>Your scores are: <%=scores%></li>
+        </ol>
+        <input type="submit" value="COMMIT TO SOMETHING">
+      </form>
+
+  </body>
+</html>

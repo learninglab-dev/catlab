@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html lang="en-US">
+  <head>
+    <% include partials/head %>
+    <link rel='stylesheet' href='/stylesheets/channel_hist_output.css'>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>
+      List of history for channel <%= channel %>
+    </p>
+    <table>
+      <%
+        list.forEach(function(element){
+      %>
+      <tr>
+        <td>
+          <strong>ts: </strong><%= element.ts %>
+        </td>
+        <td>
+          <strong>user: </strong><%= element.user %>
+        </td>
+        <td>
+          <strong>text: </strong><%= element.text %>
+        </td>
+      </tr>
+      <%
+        });
+      %>
+    </table>
+  </body>
+<% include partials/foot %>
