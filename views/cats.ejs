@@ -11,5 +11,49 @@
       alt="a game mechanic"
       >
     <h1><%=rationale%></h1>
+
+<form action="/catvote" method="POST">
+  <input type = "hidden" name = "catId" value =
+  <%= catId %>
+   />
+   <input type = "hidden" name = "loadTs" value =
+   <%= ts %>
+    />
+  <input type="range" name="points" min="0" max="100">
+  <input type="submit" value="Submit">
+</form>
+<h3 style="margin-top: 50px; width: 40%; margin-left: 100px">previous results</h3>
+<table style="width: 40%; margin-left: 100px ">
+  <tr>
+    <td>
+      cat
+    </td>
+    <td>
+      hits
+    </td>
+    <td>
+      rating
+    </td>
+  </tr>
+
+<% for (var i = 0; i < catList.length; i++) { %>
+
+  <tr>
+    <td>
+    for
+    <%= catList[i].name %>
+    </td>
+    <td>
+    <%=  catList[i].hits %>
+    </td>
+    <td>
+    <%=  (catList[i].rating).toFixed(2) %>
+    </td>
+  </tr>
+
+
+<% } %>
+
+</table>
     </body>
 </html>

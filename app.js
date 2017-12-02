@@ -11,6 +11,7 @@ var slack = require('./routes/slack');
 var phil = require('./routes/phil');
 var mechanics = require('./routes/mechanics');
 var cats = require('./routes/cats');
+var tools = require('./routes/tools');
 require('dotenv').config();
 
 var app = express();
@@ -18,8 +19,9 @@ var app = express();
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-// var mongoDB = process.env.MONGODB_URL;
-var mongoDB = process.env.MLAB_URL;
+var mongoDB = process.env.DB_URL;
+// var mongoDB = process.env.MLAB_URL;
+
 
 mongoose.connect(mongoDB, {
   useMongoClient: true
@@ -51,6 +53,7 @@ app.use('/slack', slack);
 app.use('/phil', phil);
 app.use('/mechanics', mechanics);
 app.use('/cats', cats);
+app.use('/tools', tools);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>
+      you are in tools and it's working!!!!
+    </p>
+
+
+
+    <ol>
+
+      <% for (var i = 0; i < slack.length; i++) { %>
+
+        <li>
+      <%=  (slack[i].user + " wrote " + slack[i].text) %>
+        </li>
+
+    <%  } %>
+
+    </ol>
+    <p>
+      <%= JSON.stringify(slack, null, 4) %>
+    </p>
+    </body>
+</html>
