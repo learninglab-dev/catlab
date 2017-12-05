@@ -19,8 +19,8 @@ var app = express();
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = process.env.DB_URL;
-// var mongoDB = process.env.MLAB_URL;
+// var mongoDB = process.env.DB_URL;
+var mongoDB = process.env.MLAB_URL;
 
 
 mongoose.connect(mongoDB, {
