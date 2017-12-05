@@ -16,4 +16,13 @@ router.get('/', function(req, res, next) {
   // console.log(slackOutput);
 });
 
+router.post('/io2s', function(req, res, next){
+  console.log(req.body);
+  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + req.body + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
+  cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
+  console.log("\n\n");
+});
+
+
+
 module.exports = router;

@@ -13,13 +13,19 @@
     <h1><%=rationale%></h1>
 
 <form action="/catvote" method="POST">
-  <input type = "hidden" name = "catId" value =
+  <input id="catId" type = "hidden" name = "catId" value =
   <%= catId %>
    />
-   <input type = "hidden" name = "loadTs" value =
+   <input id="loadTs" type = "hidden" name = "loadTs" value =
    <%= ts %>
     />
-  <input type="range" name="points" min="0" max="100">
+  <input id="rating_slider" type="range" name="points" min="0" max="100">
+  <h3>Your Rating: <span id="rating"></span></h3>
+  <div id="enter" style="width: 140px; height: 40px; font-size: 30px; background: rgba(255, 0, 110, .9); color: white; margin: auto; border-radius: 5px">
+    <p style="text-align: center">
+      SUBMIT
+    </p>
+  </div>
   <input type="submit" value="Submit">
 </form>
 <h3 style="margin-top: 50px; width: 40%; margin-left: 100px">previous results</h3>
@@ -55,5 +61,8 @@
 <% } %>
 
 </table>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="javascripts/cats_scripts.js"></script>
     </body>
 </html>
