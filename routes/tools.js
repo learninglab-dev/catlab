@@ -17,15 +17,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/io2s', function(req, res, next){
-  res.send("got it");
+
   console.log(req.body);
   console.log(process.env.SLACK_WEBHOOK_URL);
   // var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just transcoded ' + path.basename(sourcePath) + ' and put it here: ' + destinationPath + ' .", "icon_emoji": ":desktop_computer:"}';
   // console.log(thePayload);
   // cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
 
-  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + (JSON.stringify(req.body)) + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
+  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + req.body.test + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
+  console.log(thePayload);
   cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
+  res.send("got it" + JSON.stringify(req.body));
   console.log("\n\n");
 });
 
