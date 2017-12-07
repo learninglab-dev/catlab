@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var slackOutput = require('../data/slackOutput');
 var cp = require ('child_process');
-var io2s = require ('../scripts/io2s').singleIo2s;
+var io2s = require ('../scripts/io2s').io2s;
 
 router.get('/', function(req, res, next) {
   var replies = [];
@@ -33,7 +33,7 @@ router.post('/io2s', function(req, res, next){
   for (var i = 0; i < req.body.segments.length; i++) {
     console.log("we will export from " + req.body.segments[i].inHr + " to " + req.body.segments[i].outHr);
   }
-  // io2s(req.body.segments);
+  io2s(req.body.segments);
   res.send("got it" + JSON.stringify(req.body));
 });
 
