@@ -2,7 +2,6 @@ const parseXml = require('xml2js').parseString;
 const fs = require('fs');
 const xml = require('xml');
 const xml2js = require('xml2js');
-const tools = require('../../ll_modules/workflowobjects').tools;
 // require shootprocessor?
 // loop through all
 
