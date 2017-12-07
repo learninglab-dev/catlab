@@ -6,10 +6,10 @@ const xml2js = require('xml2js');
 // loop through all
 
 
-function io2s(segmentArray, cameraArray){
+function io2s(segmentArray){
       var offset = 0;
       console.log(JSON.stringify(segmentArray, null, 4));
-      console.log(JSON.stringify(cameraArray, null, 4));
+      // console.log(JSON.stringify(cameraArray, null, 4));
       segmentArray.forEach((segment)=>{
         console.log("now the offset is " + offset);
         console.log("first segment in point is " + segment.inHr + ":" + segment.inMin + ":" + segment.inSec + ":" + segment.inFrame);
