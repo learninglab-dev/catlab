@@ -29,6 +29,7 @@ router.post('/io2s', function(req, res, next){
   cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
   res.send("got it" + JSON.stringify(req.body));
   console.log("\n\n");
+  console.log("is this the first row? \n" + req.body[0]);
 });
 
 
