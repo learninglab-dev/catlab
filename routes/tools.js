@@ -24,7 +24,7 @@ router.post('/io2s', function(req, res, next){
   // console.log(thePayload);
   // cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
 
-  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + req.body.test + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
+  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + req.body.sheetData + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
   console.log(thePayload);
   cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
   res.send("got it" + JSON.stringify(req.body));

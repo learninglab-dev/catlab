@@ -12,7 +12,9 @@ $('#rating').on('keyup', function(){
 });
 
 
-// 
+
+
+//
 // $("#enter").click(function(){
 //   var posting = {catId: $("#catId").val(), loadTs: Date.now(), rating: $("#rating_slider").val()};
 //   console.log("just clicked");
