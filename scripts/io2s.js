@@ -33,9 +33,7 @@ function io2s(segmentArray, cameraArray){
       // // var theXml = xml(theJs)
       // var theXml = builder.buildObject(theJs);
       // console.log(theXml);
-    });
-  });
-}
+    }
 
 function tc_from_frames(frames){
   var the_frames=(frames % 24);
