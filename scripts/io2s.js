@@ -2,14 +2,18 @@ const parseXml = require('xml2js').parseString;
 const fs = require('fs');
 const xml = require('xml');
 const xml2js = require('xml2js');
+const ioRequest = require('../models/io2s');
+const path = require('path');
 // require shootprocessor?
 // loop through all
 
 
 function io2s(segmentArray){
       var offset = 0;
+      console.log("starting the io2s function");
       console.log(JSON.stringify(segmentArray, null, 4));
       // console.log(JSON.stringify(cameraArray, null, 4));
+      var theFcpxml = "<header>";
       segmentArray.forEach((segment)=>{
         console.log("this segment is from " + segment.clipName);
         console.log("now the offset is " + offset);
@@ -23,10 +27,16 @@ function io2s(segmentArray){
         var duration = outTcFcpxml - inTcFcpxml;
         console.log("duration is " + duration);
         offset = offset + duration;
+        theFcpxml+=("duration: " + duration);
       });
       console.log("the final offset is " + offset);
       var segmentDuration = tc_from_frames((offset/1001)).tc_string;
       console.log("the segment is " + segmentDuration + " long.");
+      var postTs = new Date().getTime();
+      console.log("the postTs is " + postTs);
+
+      var newIoProject = new ioRequest({fcpxml: theFcpxml, submissionTs: postTs});
+      newIoProject.save((err)=> {console.log("saved result:\n" + JSON.stringify(newIoProject, null, 5))});
 
       // theXmlHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n'
       // // var theXml = xml(theJs, {indent:'\t'});
