@@ -11,6 +11,7 @@ function io2s(segmentArray){
       console.log(JSON.stringify(segmentArray, null, 4));
       // console.log(JSON.stringify(cameraArray, null, 4));
       segmentArray.forEach((segment)=>{
+        console.log("this segment is from " + segment.clipName);
         console.log("now the offset is " + offset);
         console.log("first segment in point is " + segment.inHr + ":" + segment.inMin + ":" + segment.inSec + ":" + segment.inFrame);
         var inTcFcpxml = 1001*((segment.inFrame)+(24*(segment.inSec+(60*(segment.inMin+(60*segment.inHr))))));
