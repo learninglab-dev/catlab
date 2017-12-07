@@ -24,12 +24,16 @@ router.post('/io2s', function(req, res, next){
   // console.log(thePayload);
   // cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
 
-  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + req.body.sheetData + ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
+  var thePayload = 'payload={"channel": "#ll-tests", "username": "theworkflow-bot", "text": "<@marlon>: just got a message from Google Sheets: ' + JSON.stringify(req.body)+ ' -- does that seem right?", "icon_emoji": ":desktop_computer:"}';
   console.log(thePayload);
   cp.spawnSync("curl", ['-X', 'POST', '--data-urlencode', thePayload, process.env.SLACK_WEBHOOK_URL]);
   res.send("got it" + JSON.stringify(req.body));
-  console.log("\n\n");
-  console.log("is this the first row? \n" + req.body.sheetData[0]);
+
+  for (var i = 0; i < req.body.segments.length; i++) {
+    console.log("we will export from " + req.body.segments[i].inHr + " to " + req.body.segments[i].outHr);
+
+  }
+
 });
 
 
