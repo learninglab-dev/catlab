@@ -33,7 +33,7 @@ router.post('/io2s', function(req, res, next){
   for (var i = 0; i < req.body.segments.length; i++) {
     console.log("we will export from " + req.body.segments[i].inHr + " to " + req.body.segments[i].outHr);
   }
-  io2s(req.body.segments);
+  // io2s(req.body.segments);
   res.send("got it" + JSON.stringify(req.body));
 });
 
