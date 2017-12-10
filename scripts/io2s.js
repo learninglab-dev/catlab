@@ -3,7 +3,9 @@ const fs = require('fs');
 const xml = require('xml');
 const xml2js = require('xml2js');
 const ioRequest = require('../models/io2s');
+const Fcpxml = require('../models/fcpxml');
 const path = require('path');
+const parseXmlString = require('xml2js').parseString;
 // require shootprocessor?
 // loop through all
 
@@ -37,6 +39,16 @@ function io2s(segmentArray){
 
       var newIoProject = new ioRequest({fcpxml: theFcpxml, submissionTs: postTs});
       newIoProject.save((err)=> {console.log("saved result:\n" + JSON.stringify(newIoProject, null, 5))});
+      Fcpxml.find({}, function(err, fcpxmls){
+        console.log("in the find request");
+        console.log(JSON.stringify(fcpxmls));
+        for (var i = 0; i < fcpxmls.length; i++) {
+          console.log("found this xml: " + fcpxmls[i].shootId);
+        }
+      });
+
+
+
 
       // theXmlHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n'
       // // var theXml = xml(theJs, {indent:'\t'});
